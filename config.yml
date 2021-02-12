@@ -1,0 +1,38 @@
+
+# If you need to run multiple instances of VM, set a unique hostname,
+# machine name, and IP address for each instance.
+vagrant_hostname: centos.test
+vagrant_machine_name: centos
+vagrant_ip: 192.168.101.101
+
+# Allow VM to be accessed via a public network interface on your host.
+# Vagrant boxes are insecure by default, so be careful. You've been warned!
+# See: https://docs.vagrantup.com/v2/networking/public_network.html
+vagrant_public_ip: ""
+
+# Ensure vagrant plugins are installed.
+vagrant_plugins:
+  - name: vagrant-vbguest
+  - name: vagrant-auto_network
+
+vagrant_box: centos/7
+
+vagrant_user: vagrant
+vagrant_synced_folder_default_type: nfs
+vagrant_gui: false
+
+# A list of synced folders, with the keys 'local_path', 'destination', and
+# a 'type' of [nfs|rsync|smb] (leave empty for slow native shares). See
+# http://docs.drupalvm.com/en/latest/getting-started/syncing-folders/ for more.
+vagrant_synced_folders:
+  # The first synced folder will be used for the default installation, if
+  # any of the build_* settings are 'true'. By default the folder is set to
+  # the drupal-vm folder.
+  - local_path: .
+    destination: /var/www/vm-centos
+    type: nfs
+    create: true
+
+# Memory and CPU to use for this VM.
+vagrant_memory: 2048
+vagrant_cpus: 1
