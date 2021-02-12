@@ -1,1 +1,1 @@
-# local-vm
+# vm-centos7
